@@ -7,7 +7,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
-
+import { TimeagoModule } from 'ngx-timeago';
+import { FileUploadModule } from 'ng2-file-upload';
 import { NavComponent } from './nav/nav.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
@@ -29,13 +30,12 @@ import {MemberEditComponent} from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsaveChanges } from './_guards/prevent-unsave-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
-import { FileUploadModule } from 'ng2-file-upload';
-
 
 
 export function tokenGeter(){
    return localStorage.getItem('token');
 }
+
 
 export class CustomHammerConfig extends HammerGestureConfig {
    overrides = {
@@ -70,13 +70,14 @@ export class CustomHammerConfig extends HammerGestureConfig {
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
+      TimeagoModule.forRoot(),
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGeter,
             whitelistedDomains: ['localhost:5000'],
             blacklistedRoutes: ['localhost:5000/api/auth']
          }
-      })
+      }),
    ],
    providers: [
       ErrorInterceptorProvider,
