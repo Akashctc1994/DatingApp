@@ -7,6 +7,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TimeagoModule } from 'ngx-timeago';
 import { FileUploadModule } from 'ng2-file-upload';
 import { NavComponent } from './nav/nav.component';
@@ -17,6 +18,7 @@ import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
@@ -67,6 +69,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       FileUploadModule,
       BsDatepickerModule.forRoot(),
       BsDropdownModule.forRoot(),
+      PaginationModule.forRoot(),
+      ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
